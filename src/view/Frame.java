@@ -5,31 +5,30 @@ import model.Calculator;
 import javax.swing.*;
 import java.awt.*;
 
-public class DrawFrame extends JFrame {
-    public DrawFrame(Calculator calculator) {
+public class Frame extends JFrame {
+    public Frame(Calculator calculator) {
         /* Create a frame for the GUI */
         super("Electricity Costs Calculator");
 
         /* Make sure our program exits when we close the frame */
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        /* Add a menu to the frame */
-//        setJMenuBar(new ButtonMenu(calculator));
-
         /* Create a view for the game */
-        DrawPanel panel = new DrawPanel(calculator);
+        InputPanel inputPanel = new InputPanel(calculator);
+        OutputPanel outputPanel = new OutputPanel(calculator);
 
-        /* Create a controller for the mouse input */
-//        new SelectionController(calculator, panel);
+        /* Position each panel */
+        inputPanel.setBounds(0,0,200,105);
 
         /* Add the view to the frame */
-        add(panel);
+        add(inputPanel);
+        add(outputPanel);
 
         /* Set the size of the frame */
-        setPreferredSize(new Dimension(1600, 900));  // real panel is 1583x834 for some unknown reason
+        setPreferredSize(new Dimension(400, 140));
 
         /* Set minimum size*/
-        setMinimumSize(new Dimension(858, 480));
+        setResizable(false);
 
         /* Try to make all the components at or above their preferred size */
         pack();

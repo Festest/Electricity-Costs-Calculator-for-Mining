@@ -1,4 +1,4 @@
-package controler.Actions;
+package controller.Actions;
 
 public class DefaultButton {
 }
