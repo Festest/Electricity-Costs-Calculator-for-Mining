@@ -6,6 +6,9 @@ import model.Calculator;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
+/**
+ * The buttons located on the left panel (InputPanel). If pressed it will calculate the values.
+ */
 public class CalculateButton extends JButton {
     private Calculator calculator;
     private JFormattedTextField miningWattage;
@@ -21,6 +24,9 @@ public class CalculateButton extends JButton {
         setButtonProperties();
     }
 
+    /**
+     * "ALT + A" will also trigger this button.
+     */
     private void setButtonProperties() {
         setVerticalTextPosition(AbstractButton.CENTER);
         setHorizontalTextPosition(AbstractButton.CENTER);

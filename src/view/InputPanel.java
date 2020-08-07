@@ -5,7 +5,15 @@ import model.Calculator;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The left hand panel that manages the user input through textFields and checkBoxes.
+ */
 public class InputPanel extends JPanel {
+
+    /**
+     * The constructor for the panel.
+     * @param calculator
+     */
     public InputPanel(Calculator calculator) {
         setBackground(Color.DARK_GRAY);
 

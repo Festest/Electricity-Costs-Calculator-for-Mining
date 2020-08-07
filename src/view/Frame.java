@@ -3,9 +3,11 @@ package view;
 import model.Calculator;
 
 import javax.swing.*;
-import javax.swing.text.GapContent;
 import java.awt.*;
 
+/**
+ * The frame containing the two panels. This frame is not resizable and is 450x160.
+ */
 public class Frame extends JFrame {
     public Frame(Calculator calculator) {
         /* Create a frame for the GUI */
@@ -21,7 +23,7 @@ public class Frame extends JFrame {
 
         /* Position each panel */
         inputPanel.setBounds(0,0,230,125);
-        outputPanel.setBounds(230,0,250,125);
+        outputPanel.setBounds(230,0,220,125);
 
 
         /* Add the view to the frame */
@@ -31,7 +33,7 @@ public class Frame extends JFrame {
 
 
         /* Set the size of the frame */
-        setPreferredSize(new Dimension(480, 160));
+        setPreferredSize(new Dimension(450, 160));
 
         /* Set minimum size*/
         setResizable(false);

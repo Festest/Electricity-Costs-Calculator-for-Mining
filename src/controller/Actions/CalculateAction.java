@@ -5,6 +5,9 @@ import model.Calculator;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * The action to be executed when the Calculate button is pressed.
+ */
 public class CalculateAction extends AbstractAction {
     private Calculator calculator;
     private JFormattedTextField miningWattage;
@@ -19,6 +22,10 @@ public class CalculateAction extends AbstractAction {
         this.checkBox = checkBox;
     }
 
+    /**
+     * Update all the values in the calculator
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         calculator.setSummerTime(checkBox.isSelected());

@@ -2,6 +2,9 @@ package model;
 
 import java.util.Observable;
 
+/**
+ * The calculator that will compute the values
+ */
 public class Calculator extends Observable {
 
     // Number of Hours peer week at that certain price point
@@ -56,7 +59,7 @@ public class Calculator extends Observable {
         this.miningWattage = miningWattage / 1000;  // Unit conversion
     }
 
-        /* Electricity Prices */
+        /* Electricity Prices - NOTE: Unfinished - intended to add functionality to change prices */
     public void setHigh(float high) {
         this.high = high;
     }
@@ -86,13 +89,17 @@ public class Calculator extends Observable {
     }
 
     // Methods
+    /**
+     * The method that which will calculate the values
+     */
     public void calculate() {
-        this.computedHigh = idleWattage * high * hoursHigh * 4;
-        this.computedMedium = miningWattage * medium * hoursMedium * 4;
-        this.computedLow = miningWattage * low * hoursLow * 4;
-        this.total = computedHigh + computedMedium + computedLow;
+        computedHigh = idleWattage * high * hoursHigh * 4;
+        computedMedium = miningWattage * medium * hoursMedium * 4;
+        computedLow = miningWattage * low * hoursLow * 4;
+        total = computedHigh + computedMedium + computedLow;
         System.out.println(total);
-        notifyObservers();
+
         setChanged();
+        notifyObservers();
     }
 }
