@@ -4,7 +4,6 @@ import controller.Actions.CalculateAction;
 import model.Calculator;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class CalculateButton extends JButton {

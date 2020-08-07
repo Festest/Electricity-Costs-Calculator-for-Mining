@@ -3,6 +3,7 @@ package view;
 import model.Calculator;
 
 import javax.swing.*;
+import javax.swing.text.GapContent;
 import java.awt.*;
 
 public class Frame extends JFrame {
@@ -16,16 +17,21 @@ public class Frame extends JFrame {
         /* Create a view for the game */
         InputPanel inputPanel = new InputPanel(calculator);
         OutputPanel outputPanel = new OutputPanel(calculator);
+        JPanel filler = new JPanel();
 
         /* Position each panel */
-        inputPanel.setBounds(0,0,230,115);
+        inputPanel.setBounds(0,0,230,125);
+        outputPanel.setBounds(230,0,250,125);
+
 
         /* Add the view to the frame */
         add(inputPanel);
         add(outputPanel);
+        add(filler);
+
 
         /* Set the size of the frame */
-        setPreferredSize(new Dimension(460, 150));
+        setPreferredSize(new Dimension(480, 160));
 
         /* Set minimum size*/
         setResizable(false);

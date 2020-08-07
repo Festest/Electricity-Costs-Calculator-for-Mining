@@ -14,16 +14,15 @@ public class Calculator extends Observable {
     private float miningWattage;
 
     // Electricity Price
-    private Boolean summerTime;
     private float high;
     private float medium;
     private float low;
 
     // Computed Values
     private float total;
-    private float highHours;
-    private float mediumHours;
-    private float lowHours;
+    private float computedHigh;
+    private float computedMedium;
+    private float computedLow;
 
     // Constructor with defaults
     public Calculator() {
@@ -37,8 +36,7 @@ public class Calculator extends Observable {
 
     // Setters & Getters
     public void setSummerTime(Boolean summerTime) {
-        this.summerTime = summerTime;
-        if (this.summerTime) {
+        if (summerTime) {
             this.hoursHigh = 15;
             this.hoursMedium = 77;
         }
@@ -71,12 +69,30 @@ public class Calculator extends Observable {
         this.medium = medium;
     }
 
+    public float getComputedHigh() {
+        return computedHigh;
+    }
+
+    public float getComputedMedium() {
+        return computedMedium;
+    }
+
+    public float getComputedLow() {
+        return computedLow;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
     // Methods
     public void calculate() {
-        this.highHours = idleWattage * high * hoursHigh * 4;
-        this.mediumHours = miningWattage * medium * hoursMedium * 4;
-        this.lowHours = miningWattage * low * hoursLow * 4;
-        this.total = highHours + mediumHours + lowHours;
+        this.computedHigh = idleWattage * high * hoursHigh * 4;
+        this.computedMedium = miningWattage * medium * hoursMedium * 4;
+        this.computedLow = miningWattage * low * hoursLow * 4;
+        this.total = computedHigh + computedMedium + computedLow;
         System.out.println(total);
+        notifyObservers();
+        setChanged();
     }
 }

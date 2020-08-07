@@ -4,23 +4,15 @@ import model.Calculator;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Observable;
-import java.util.Observer;
 
-public class InputPanel extends JPanel implements Observer {
-    private Calculator calculator;
-    private TextField miningWattage;
-    private TextField idleWattage;
-
+public class InputPanel extends JPanel {
     public InputPanel(Calculator calculator) {
-        this.calculator = calculator;
-        setBackground(Color.GRAY);
-        calculator.addObserver(this);
+        setBackground(Color.DARK_GRAY);
 
-        JLabel label1 = new JLabel("Mining Wattage");
+        JLabel label1 = new JLabel("<html><font color=\"white\">Mining Wattage</font></html>");
         JFormattedTextField miningWattage = new JFormattedTextField();
         miningWattage.setValue(new Float(170));
-        JLabel label2 = new JLabel("Idle Wattage");
+        JLabel label2 = new JLabel("<html><font color=\"white\">Idle Wattage</font></html>");
         JFormattedTextField idleWattage = new JFormattedTextField();
         idleWattage.setValue(new Float(40));
         JCheckBox checkBox = new JCheckBox("Summer Time",true);
@@ -33,53 +25,31 @@ public class InputPanel extends JPanel implements Observer {
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addGap(10)
                         .addComponent(label1)
-                        .addGap(10)
                         .addComponent(label2)
-                        .addGap(10)
                         .addComponent(checkBox)
-                        .addGap(10)
                 )
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addGap(10)
                         .addComponent(miningWattage)
-                        .addGap(10)
                         .addComponent(idleWattage)
-                        .addGap(10)
                         .addComponent(calculateButton)
-                        .addGap(10)
                 )
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addGap(10)
                         .addComponent(label1)
-                        .addGap(10)
                         .addComponent(miningWattage)
-                        .addGap(10)
                 )
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addGap(10)
                         .addComponent(label2)
-                        .addGap(10)
                         .addComponent(idleWattage)
-                        .addGap(10)
                 )
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addGap(10)
                         .addComponent(checkBox)
-                        .addGap(10)
                         .addComponent(calculateButton)
-                        .addGap(10)
                 )
         );
         this.setLayout(layout);
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-
     }
 }

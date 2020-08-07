@@ -3,7 +3,6 @@ package controller.Actions;
 import model.Calculator;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class CalculateAction extends AbstractAction {
