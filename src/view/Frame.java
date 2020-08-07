@@ -18,14 +18,14 @@ public class Frame extends JFrame {
         OutputPanel outputPanel = new OutputPanel(calculator);
 
         /* Position each panel */
-        inputPanel.setBounds(0,0,200,105);
+        inputPanel.setBounds(0,0,230,115);
 
         /* Add the view to the frame */
         add(inputPanel);
         add(outputPanel);
 
         /* Set the size of the frame */
-        setPreferredSize(new Dimension(400, 140));
+        setPreferredSize(new Dimension(460, 150));
 
         /* Set minimum size*/
         setResizable(false);

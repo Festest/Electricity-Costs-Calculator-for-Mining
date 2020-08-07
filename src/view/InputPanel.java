@@ -9,8 +9,8 @@ import java.util.Observer;
 
 public class InputPanel extends JPanel implements Observer {
     private Calculator calculator;
-    private TextField highWattage;
-    private TextField lowWattage;
+    private TextField miningWattage;
+    private TextField idleWattage;
 
     public InputPanel(Calculator calculator) {
         this.calculator = calculator;
@@ -18,10 +18,13 @@ public class InputPanel extends JPanel implements Observer {
         calculator.addObserver(this);
 
         JLabel label1 = new JLabel("Mining Wattage");
-        TextField highWattage = new TextField("170", 5);
+        JFormattedTextField miningWattage = new JFormattedTextField();
+        miningWattage.setValue(new Float(170));
         JLabel label2 = new JLabel("Idle Wattage");
-        TextField lowWattage = new TextField("40", 5);
-        JCheckBox checkBox = new JCheckBox("Summer Time");
+        JFormattedTextField idleWattage = new JFormattedTextField();
+        idleWattage.setValue(new Float(40));
+        JCheckBox checkBox = new JCheckBox("Summer Time",true);
+        CalculateButton calculateButton = new CalculateButton(calculator, miningWattage, idleWattage, checkBox);
 
         GroupLayout layout = new GroupLayout(this);
         layout.setAutoCreateGaps(true);
@@ -30,32 +33,47 @@ public class InputPanel extends JPanel implements Observer {
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                    .addComponent(label1)
-                    .addGap(10)
-                    .addComponent(label2)
-                    .addGap(10)
-                    .addComponent(checkBox)
+                        .addGap(10)
+                        .addComponent(label1)
+                        .addGap(10)
+                        .addComponent(label2)
+                        .addGap(10)
+                        .addComponent(checkBox)
+                        .addGap(10)
                 )
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                    .addComponent(highWattage)
-                    .addGap(10)
-                    .addComponent(lowWattage)
+                        .addGap(10)
+                        .addComponent(miningWattage)
+                        .addGap(10)
+                        .addComponent(idleWattage)
+                        .addGap(10)
+                        .addComponent(calculateButton)
+                        .addGap(10)
                 )
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                    .addComponent(label1)
-                    .addGap(10)
-                    .addComponent(highWattage)
+                        .addGap(10)
+                        .addComponent(label1)
+                        .addGap(10)
+                        .addComponent(miningWattage)
+                        .addGap(10)
                 )
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                    .addComponent(label2)
-                    .addGap(10)
-                    .addComponent(lowWattage)
+                        .addGap(10)
+                        .addComponent(label2)
+                        .addGap(10)
+                        .addComponent(idleWattage)
+                        .addGap(10)
                 )
-                .addGap(10)
-                .addComponent(checkBox)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                        .addGap(10)
+                        .addComponent(checkBox)
+                        .addGap(10)
+                        .addComponent(calculateButton)
+                        .addGap(10)
+                )
         );
         this.setLayout(layout);
     }
